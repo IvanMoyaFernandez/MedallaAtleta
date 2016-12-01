@@ -26,5 +26,26 @@ public class AtletaService {
         atleta1.setFechaNacimiento(LocalDate.of(1995,8,11));
         atleta1.setNacionalidad("Es");
         atletaRepository.save(atleta1);
+
+        Atleta atleta2 = new Atleta();
+        atleta2.setNombre("Carlos");
+        atleta2.setApellidos("Garcia");
+        atleta2.setFechaNacimiento(LocalDate.of(1993,4,20));
+        atleta2.setNacionalidad("Por");
+        atletaRepository.save(atleta2);
+
+        Atleta atleta3 = new Atleta();
+        atleta3.setNombre("Jose");
+        atleta3.setApellidos("Dorado");
+        atleta3.setFechaNacimiento(LocalDate.of(1994,11,5));
+        atleta3.setNacionalidad("Es");
+        atletaRepository.save(atleta3);
+
+        Atleta atleta4 = new Atleta();
+        atleta4.setNombre("Pepe");
+        atleta4.setApellidos("Fernandez");
+        atleta4.setFechaNacimiento(LocalDate.of(1994,7,7));
+        atleta4.setNacionalidad("Por");
+        atletaRepository.save(atleta4);
     }
 }

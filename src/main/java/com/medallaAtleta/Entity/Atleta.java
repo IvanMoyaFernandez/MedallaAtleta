@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Atleta {
+public class Atleta{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
