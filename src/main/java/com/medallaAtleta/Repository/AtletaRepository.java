@@ -1,6 +1,8 @@
 package com.medallaAtleta.Repository;
 
 import com.medallaAtleta.Entity.Atleta;
+import com.medallaAtleta.Entity.Medalla;
+import com.medallaAtleta.Entity.TipoMedalla;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,5 +22,5 @@ public interface AtletaRepository extends JpaRepository<Atleta, Long> {
     // 2. Retornar todos los atletas agrupados por tipo de medalla mediante un Map<TipoMedalla, List<Atleta>>
     @Query("SELECT atleta " +
             "FROM Atleta atleta")
-    List<Atleta> getAtletasGroupByTipoMedalla();
+    List<Object[]> getAtletasGroupByTipoMedalla();
 }

@@ -11,7 +11,8 @@ public class Medalla {
     public Long id;
 
     @Column
-    public TipoMedalla tipoMedalla;
+    @Enumerated(EnumType.STRING)
+    private TipoMedalla tipoMedalla;
 
     @Column
     public String especialidad;

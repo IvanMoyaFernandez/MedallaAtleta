@@ -34,7 +34,6 @@ public class Atleta{
     @OneToMany(mappedBy = "atleta")
     private Set<Medalla> medalla = new HashSet<>();
 
-
     public Atleta() {}
 
 
@@ -53,7 +52,7 @@ public class Atleta{
     public LocalDate getFechaNacimiento() {return fechaNacimiento;}
     public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
 
-    public Set<Medalla> getMedalla() {return medalla;}
+    public Medalla getMedalla() {return (Medalla) medalla;}
     public void setMedalla(Set<Medalla> medalla) {this.medalla = medalla;}
 
     @Override

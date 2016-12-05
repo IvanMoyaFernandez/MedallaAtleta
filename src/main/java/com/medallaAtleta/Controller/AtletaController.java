@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/atletas")
@@ -73,14 +74,9 @@ public class AtletaController {
     }
 //                      POR ACABAR
 // 2. Retornar todos los atletas agrupados por tipo de medalla mediante un Map<TipoMedalla, List<Atleta>>
-    /*@GetMapping("/groupByTipoMedalla")
-    public Map<Medalla, Collection<Atleta>> getAtletasGroupByTipoMedalla() {
-        ListMultimap<Medalla, Atleta> MultiMapAtletas2 = ArrayListMultimap.create();
-        List<Atleta> auxiliar = atletaRepository.getAtletasGroupByTipoMedalla();
-        for (Atleta at : auxiliar ) {
-            MultiMapAtletas2.put(at.getMedalla(), at);
-        }
-        return MultiMapAtletas2.asMap();
-    }*/
+    @GetMapping("/groupByTipoMedalla")
+    public Map<TipoMedalla, List<Atleta>> getAtletasGroupByTipoMedalla(){
+       return atletaRepository.getAtletasGroupByTipoMedalla().parallelStream().collect(Collectors.groupingBy(Atleta::getMedalla));
+    }
 }
 
