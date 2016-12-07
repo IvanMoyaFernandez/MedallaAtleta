@@ -13,7 +13,7 @@ import java.util.List;
 public interface AtletaRepository extends JpaRepository<Atleta, Long> {
     public List<Atleta> findByNombre(String nombreAtleta);
 
-    // 1. Retornar todos los atletas agrupados por nacionalidad mediante un Map<String, List<Atleta>>;
+    // 3. Devolver todos los atletas que hayan nacido en una fecha anterior a una fecha determinada.
     @Query("SELECT atleta " +
             "FROM Atleta atleta")
     List<Atleta> getAtletasGroupByNacionalidad();

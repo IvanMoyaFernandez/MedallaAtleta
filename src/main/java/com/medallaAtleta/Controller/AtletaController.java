@@ -54,7 +54,13 @@ public class AtletaController {
     @DeleteMapping("/{id}")
     public void deleteAtleta(@PathVariable Long id) {atletaRepository.delete(id);}
 
-// 1. Retornar todos los atletas agrupados por nacionalidad mediante un Map<String, List<Atleta>>;
+
+// 1. Devolver todos los Atletas de una nacionalidad determinada
+
+// 2. Devolver todos los atletas que hayan nacido en una fecha anterior a una fecha determinada.
+
+
+// 3. Devolver todos los atletas agrupados por nacionalidad mediante un Map<String, List<Atleta>>;
     @GetMapping("/groupByNacionalidad")
     public Map<String, Collection<Atleta>> getAtletasGroupByNacionalidad() {
         //  Creamos el multimap - MultiMapAtletas - que contendrá una key que en nuestro caso
@@ -75,8 +81,7 @@ public class AtletaController {
         return MultiMapAtletas.asMap();
     }
 
-//                      POR ACABAR
-// 2. Retornar todos los atletas agrupados por tipo de medalla mediante un Map<TipoMedalla, List<Atleta>>
+// 4. Retornar todos los atletas agrupados por tipo de medalla mediante un Map<TipoMedalla, List<Atleta>>
     @GetMapping("/groupByTipoMedalla")
     public Map<TipoMedalla, List<Atleta>> getAtletasGroupByTipoMedalla(){
         return atletaRepository
