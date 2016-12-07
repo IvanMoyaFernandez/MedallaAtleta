@@ -17,10 +17,4 @@ public interface AtletaRepository extends JpaRepository<Atleta, Long> {
     @Query("SELECT atleta " +
             "FROM Atleta atleta")
     List<Atleta> getAtletasGroupByNacionalidad();
-
-//                      POR ACABAR
-    // 2. Retornar todos los atletas agrupados por tipo de medalla mediante un Map<TipoMedalla, List<Atleta>>
-    @Query("SELECT atleta " +
-            "FROM Atleta atleta")
-    List<Object[]> getAtletasGroupByTipoMedalla();
 }

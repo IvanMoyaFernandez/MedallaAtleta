@@ -1,10 +1,9 @@
 package com.medallaAtleta.Entity;
 
+import com.medallaAtleta.Entity.Medalla;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,13 +27,20 @@ public class Atleta{
     @Column
     public LocalDate fechaNacimiento;
 
-    // un arleta tendrá muchas medallas
+    // un atleta tendrá muchas medallas
     // esta es la debil (la fuerte está en Medalla.java)
     @JsonIgnore
     @OneToMany(mappedBy = "atleta")
-    private Set<Medalla> medalla = new HashSet<>();
+    private Set<Medalla> medallas = new HashSet<>();
 
     public Atleta() {}
+
+    public Atleta(String nombre, String apellidos, String nacionalidad, LocalDate cumple) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.nacionalidad = nacionalidad;
+        this.fechaNacimiento = cumple;
+    }
 
 
     public Long getId() {return id;}
@@ -52,8 +58,9 @@ public class Atleta{
     public LocalDate getFechaNacimiento() {return fechaNacimiento;}
     public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
 
-    public Medalla getMedalla() {return (Medalla) medalla;}
-    public void setMedalla(Set<Medalla> medalla) {this.medalla = medalla;}
+    public Set<Medalla> getMedallas() {return medallas;}
+    public void setMedallas(Set<Medalla> medalla) {this.medallas = medalla;}
+
 
     @Override
     public String toString() {
