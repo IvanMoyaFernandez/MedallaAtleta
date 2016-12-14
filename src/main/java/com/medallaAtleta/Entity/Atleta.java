@@ -4,6 +4,7 @@ import com.medallaAtleta.Entity.Medalla;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class Atleta{
     public String nacionalidad;
 
     @Column
-    public LocalDate fechaNacimiento;
+    public Date fechaNacimiento;
 
     // un atleta tendrá muchas medallas
     // esta es la debil (la fuerte está en Medalla.java)
@@ -35,7 +36,7 @@ public class Atleta{
 
     public Atleta() {}
 
-    public Atleta(String nombre, String apellidos, String nacionalidad, LocalDate cumple) {
+    public Atleta(String nombre, String apellidos, String nacionalidad, Date cumple) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nacionalidad = nacionalidad;
@@ -55,8 +56,8 @@ public class Atleta{
     public String getNacionalidad() {return nacionalidad;}
     public void setNacionalidad(String nacionalidad) {this.nacionalidad = nacionalidad;}
 
-    public LocalDate getFechaNacimiento() {return fechaNacimiento;}
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
+    public Date getFechaNacimiento() {return fechaNacimiento;}
+    public void setFechaNacimiento(Date fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
 
     public Set<Medalla> getMedallas() {return medallas;}
     public void setMedallas(Set<Medalla> medalla) {this.medallas = medalla;}

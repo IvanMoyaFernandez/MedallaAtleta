@@ -7,12 +7,12 @@ import com.medallaAtleta.Entity.Medalla;
 import com.medallaAtleta.Entity.TipoMedalla;
 import com.medallaAtleta.Repository.AtletaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Collection;
+import java.util.*;
+import java.util.GregorianCalendar;
 import static java.util.stream.Collectors.groupingBy;
 
 
@@ -56,9 +56,16 @@ public class AtletaController {
 
 
 // 1. Devolver todos los Atletas de una nacionalidad determinada
+    @GetMapping("/nacionaliadLike/{nacionalidad}")
+    public List<Atleta> findByNacionalidadLike(@PathVariable String nacionalidad) {
+        return atletaRepository.findByNacionalidadLike(nacionalidad);
+    }
 
 // 2. Devolver todos los atletas que hayan nacido en una fecha anterior a una fecha determinada.
-
+    @GetMapping("/fechaNacimientoLessThan/{fechaNacimiento}")
+    public List<Atleta> findByfechaNacimientoLessThan(@PathVariable("fechaNacimiento") @DateTimeFormat(pattern="ddMMyyyy") Date fechaNacimiento) {
+        return atletaRepository.findByfechaNacimientoLessThan(fechaNacimiento);
+    }
 
 // 3. Devolver todos los atletas agrupados por nacionalidad mediante un Map<String, List<Atleta>>;
     @GetMapping("/groupByNacionalidad")
