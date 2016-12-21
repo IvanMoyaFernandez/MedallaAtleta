@@ -27,13 +27,13 @@ public class AtletaController {
     // POST
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Atleta createPlayer(@RequestBody Atleta atleta) {
+    public Atleta createAtleta(@RequestBody Atleta atleta) {
         return atletaRepository.save(atleta);
     }
 
     // PUT
     @PutMapping
-    public Atleta updatePlayer(@RequestBody Atleta atleta) {
+    public Atleta updateAtleta(@RequestBody Atleta atleta) {
         return atletaRepository.save(atleta);
     }
 
